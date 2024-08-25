@@ -40,8 +40,8 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=raw,value=latest
-            type=raw,value=${{ steps.release-meta.outputs.version }}
-            type=raw,value=${{ steps.release-meta.outputs.version }}-${{ steps.release-meta.outputs.commit_short }}
+            type=raw,value=${{ steps.repo-meta.outputs.version }}
+            type=raw,value=${{ steps.repo-meta.outputs.version }}-${{ steps.repo-meta.outputs.commit_short }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
